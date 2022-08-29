@@ -44,5 +44,11 @@ namespace Shoprite_Product_Manager_IA
         {
             populate();
         }
+
+        private void SelDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ProdName.Text = SelDGV.SelectedRows[0].Cells[0].Value.ToString(); 
+            ProdQty.Text = SelDGV.SelectedRows[0].Cells[1].Value.ToString();
+        }
     }
 }

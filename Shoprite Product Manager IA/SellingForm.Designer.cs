@@ -84,6 +84,7 @@
             this.SelDGV.RowTemplate.Height = 25;
             this.SelDGV.Size = new System.Drawing.Size(230, 293);
             this.SelDGV.TabIndex = 22;
+            this.SelDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelDGV_CellContentClick);
             // 
             // Date
             // 
