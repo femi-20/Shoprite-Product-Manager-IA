@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.SelDGV = new System.Windows.Forms.DataGridView();
             this.Date = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.ProdDGV = new System.Windows.Forms.DataGridView();
@@ -47,14 +47,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProdDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkRed;
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.SelDGV);
             this.panel1.Controls.Add(this.Date);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.ProdDGV);
@@ -76,14 +76,14 @@
             this.panel1.Size = new System.Drawing.Size(790, 529);
             this.panel1.TabIndex = 1;
             // 
-            // dataGridView1
+            // SelDGV
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 233);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(230, 293);
-            this.dataGridView1.TabIndex = 22;
+            this.SelDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SelDGV.Location = new System.Drawing.Point(17, 233);
+            this.SelDGV.Name = "SelDGV";
+            this.SelDGV.RowTemplate.Height = 25;
+            this.SelDGV.Size = new System.Drawing.Size(230, 293);
+            this.SelDGV.TabIndex = 22;
             // 
             // Date
             // 
@@ -257,9 +257,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SellingForm";
             this.Text = "SellingForm";
+            this.Load += new System.EventHandler(this.SellingForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProdDGV)).EndInit();
             this.ResumeLayout(false);
 
@@ -283,7 +284,7 @@
         private TextBox ProdID;
         private Label label2;
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView SelDGV;
         private Label Date;
     }
 }
