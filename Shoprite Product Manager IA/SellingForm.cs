@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+<<<<<<< HEAD
 using System.Data.SqlClient;
+=======
+>>>>>>> 96406d1bf29979ad77fb11f4ff1f7c1fee7db72b
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
 using System.Data.SqlClient;
+=======
+>>>>>>> 96406d1bf29979ad77fb11f4ff1f7c1fee7db72b
 
 namespace Shoprite_Product_Manager_IA
 {
@@ -18,6 +24,7 @@ namespace Shoprite_Product_Manager_IA
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
         SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Utilisateur\Documents\shoprite.db.mdf;Integrated Security=True;Connect Timeout=30");
         private void populate()
         {
@@ -50,5 +57,7 @@ namespace Shoprite_Product_Manager_IA
             ProdName.Text = SelDGV.SelectedRows[0].Cells[0].Value.ToString(); 
             ProdQty.Text = SelDGV.SelectedRows[0].Cells[1].Value.ToString();
         }
+=======
+>>>>>>> 96406d1bf29979ad77fb11f4ff1f7c1fee7db72b
     }
 }
