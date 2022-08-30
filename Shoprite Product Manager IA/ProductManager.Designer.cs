@@ -166,6 +166,7 @@
             this.CatCb.Size = new System.Drawing.Size(135, 23);
             this.CatCb.TabIndex = 15;
             this.CatCb.Text = "SELECT CATEGORY";
+            this.CatCb.SelectedIndexChanged += new System.EventHandler(this.CatCb_SelectedIndexChanged);
             // 
             // label6
             // 

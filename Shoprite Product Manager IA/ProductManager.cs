@@ -129,7 +129,7 @@ namespace Shoprite_Product_Manager_IA
                 ProdName.Text = row.Cells["ProdName"].Value.ToString();
                 ProdQty.Text = row.Cells["ProdQty"].Value.ToString();
                 ProdPrice.Text = row.Cells["ProdPrice"].Value.ToString();
-                CatCb.SelectedValue= row.Cells["ProdPrice"].Value.ToString();
+                CatCb.SelectedValue= row.Cells["Prodcat"].Value.ToString();
             }
         }
         private void populate()
@@ -142,6 +142,11 @@ namespace Shoprite_Product_Manager_IA
             sda.Fill(ds);
             ProdDGV.DataSource = ds.Tables[0];
             Con.Close();
+
+        }
+
+        private void CatCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -29,7 +29,7 @@ namespace Shoprite_Product_Manager_IA
                 SqlCommand cmd = new SqlCommand(query, Con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("category added successfully");
-                Con.Close();
+                Con.Close(); 
                 populate();
             }
             catch(Exception Ex)
