@@ -103,4 +103,5 @@ namespace Shoprite_Product_Manager_IA
             txt_username.Focus();
         }
     }
+
 }
