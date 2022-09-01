@@ -27,7 +27,7 @@ namespace Shoprite_Product_Manager_IA
         private void populate()
         {
             Con.Open();
-            string query = "select ProdName , ProdQty from  ProductTb1";
+            string query = "select * from  ProductTb1";
             SqlDataAdapter sda = new SqlDataAdapter(query, Con);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
@@ -47,13 +47,27 @@ namespace Shoprite_Product_Manager_IA
 
         private void SellingForm_Load(object sender, EventArgs e)
         {
+            SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Utilisateur\Documents\shoprite.db.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand cmd = new SqlCommand("select CatName,CatId from CategoryTb1", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            DataTable table1 = new DataTable();
+            da.Fill(table1);
+            SelCb.DataSource = table1;
+            SelCb.DisplayMember = "CatName";
+            SelCb.ValueMember = "CatId";
             populate();
         }
 
         private void SelDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            ProdName.Text = SelDGV.SelectedRows[0].Cells[0].Value.ToString(); 
-            ProdQty.Text = SelDGV.SelectedRows[0].Cells[1].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.SelDGV.Rows[e.RowIndex];
+                ProdName.Text = row.Cells["ProdName"].Value.ToString();
+                ProdPrice.Text = row.Cells["ProdPrice"].Value.ToString();
+            }
+                
 
         }
 
@@ -84,6 +98,38 @@ namespace Shoprite_Product_Manager_IA
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+            DateSg.Text = DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() + "/" + DateTime.Today.Year.ToString();
+
+        }
+
+        private void DateSg_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ProdName.Text == "" || ProdQty.Text == "")
+            {
+                MessageBox.Show("Missing  Data");
+            
+            }
+            else { 
+            int n = 0, Total = Convert.ToInt32(ProdPrice.Text) * Convert.ToInt32(ProdQty.Text);
+            int Grdtotal = 0;
+            DataGridViewRow newRow = new DataGridViewRow();
+            newRow.CreateCells(ORDERDGV);
+            newRow.Cells[0].Value = n + 1;
+            newRow.Cells[1].Value = ProdName.Text;
+            newRow.Cells[2].Value = ProdPrice.Text;
+            newRow.Cells[3].Value = ProdQty.Text;
+            newRow.Cells[4].Value = Convert.ToInt32(ProdPrice.Text) * Convert.ToInt32(ProdQty.Text);
+            ORDERDGV.Rows.Add(newRow);
+            n++;
+            Grdtotal = Grdtotal + Total;
+            Amt.Text = "Rs  " + Grdtotal;
+            }
+
 
         }
     }

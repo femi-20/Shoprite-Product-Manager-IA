@@ -31,14 +31,25 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ORDERDGV = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amt = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SelDGV = new System.Windows.Forms.DataGridView();
-            this.Date = new System.Windows.Forms.Label();
+            this.DateSg = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
-            this.ProdDGV = new System.Windows.Forms.DataGridView();
+            this.BillsDGV = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.CatCb = new System.Windows.Forms.ComboBox();
+            this.SelCb = new System.Windows.Forms.ComboBox();
             this.ProdPrice = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ProdQty = new System.Windows.Forms.TextBox();
@@ -49,21 +60,28 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ORDERDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelDGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProdDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BillsDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkRed;
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.ORDERDGV);
+            this.panel1.Controls.Add(this.Amt);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.SelDGV);
-            this.panel1.Controls.Add(this.Date);
+            this.panel1.Controls.Add(this.DateSg);
             this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.ProdDGV);
+            this.panel1.Controls.Add(this.BillsDGV);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.CatCb);
+            this.panel1.Controls.Add(this.SelCb);
             this.panel1.Controls.Add(this.ProdPrice);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.ProdQty);
@@ -79,51 +97,146 @@
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(478, 249);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(85, 26);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Sells List";
+            // 
+            // ORDERDGV
+            // 
+            this.ORDERDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ORDERDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.PName,
+            this.Price,
+            this.Quantity,
+            this.Total});
+            this.ORDERDGV.Location = new System.Drawing.Point(325, 63);
+            this.ORDERDGV.Name = "ORDERDGV";
+            this.ORDERDGV.RowTemplate.Height = 25;
+            this.ORDERDGV.Size = new System.Drawing.Size(450, 124);
+            this.ORDERDGV.TabIndex = 27;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "ProdId";
+            this.Id.Name = "Id";
+            // 
+            // PName
+            // 
+            this.PName.HeaderText = "ProdName";
+            this.PName.Name = "PName";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            // 
+            // Amt
+            // 
+            this.Amt.AutoSize = true;
+            this.Amt.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Amt.ForeColor = System.Drawing.Color.White;
+            this.Amt.Location = new System.Drawing.Point(549, 201);
+            this.Amt.Name = "Amt";
+            this.Amt.Size = new System.Drawing.Size(34, 26);
+            this.Amt.TabIndex = 26;
+            this.Amt.Text = "RS";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(415, 200);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 26);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Amount";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.Location = new System.Drawing.Point(81, 201);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 30);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Add Product";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 7);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 15);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Seller";
+            // 
             // SelDGV
             // 
             this.SelDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SelDGV.Location = new System.Drawing.Point(35, 248);
+            this.SelDGV.Location = new System.Drawing.Point(34, 266);
             this.SelDGV.Name = "SelDGV";
             this.SelDGV.RowTemplate.Height = 25;
-            this.SelDGV.Size = new System.Drawing.Size(230, 250);
+            this.SelDGV.Size = new System.Drawing.Size(230, 231);
             this.SelDGV.TabIndex = 22;
             this.SelDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelDGV_CellContentClick);
             // 
-            // Date
+            // DateSg
             // 
-            this.Date.AutoSize = true;
-            this.Date.Location = new System.Drawing.Point(621, 15);
-            this.Date.Name = "Date";
-            this.Date.Size = new System.Drawing.Size(31, 15);
-            this.Date.TabIndex = 21;
-            this.Date.Text = "Date";
+            this.DateSg.AutoSize = true;
+            this.DateSg.Location = new System.Drawing.Point(677, 7);
+            this.DateSg.Name = "DateSg";
+            this.DateSg.Size = new System.Drawing.Size(31, 15);
+            this.DateSg.TabIndex = 21;
+            this.DateSg.Text = "Date";
+            this.DateSg.Click += new System.EventHandler(this.DateSg_Click);
             // 
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button8.ForeColor = System.Drawing.Color.Red;
-            this.button8.Location = new System.Drawing.Point(176, 205);
+            this.button8.Location = new System.Drawing.Point(175, 237);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(89, 23);
             this.button8.TabIndex = 19;
             this.button8.Text = "REFRESH";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // ProdDGV
+            // BillsDGV
             // 
-            this.ProdDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ProdDGV.Location = new System.Drawing.Point(314, 308);
-            this.ProdDGV.Name = "ProdDGV";
-            this.ProdDGV.RowTemplate.Height = 25;
-            this.ProdDGV.Size = new System.Drawing.Size(450, 190);
-            this.ProdDGV.TabIndex = 18;
-            this.ProdDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProdDGV_CellContentClick);
+            this.BillsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.BillsDGV.Location = new System.Drawing.Point(325, 278);
+            this.BillsDGV.Name = "BillsDGV";
+            this.BillsDGV.RowTemplate.Height = 25;
+            this.BillsDGV.Size = new System.Drawing.Size(450, 117);
+            this.BillsDGV.TabIndex = 18;
+            this.BillsDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProdDGV_CellContentClick);
             // 
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button7.ForeColor = System.Drawing.Color.Red;
-            this.button7.Location = new System.Drawing.Point(510, 267);
+            this.button7.Location = new System.Drawing.Point(582, 457);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 17;
@@ -135,11 +248,11 @@
             // 
             this.button4.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.Color.Red;
-            this.button4.Location = new System.Drawing.Point(355, 267);
+            this.button4.Location = new System.Drawing.Point(478, 457);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 16;
-            this.button4.Text = "EDIT";
+            this.button4.Text = "PRINT";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -147,32 +260,33 @@
             // 
             this.button3.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(677, 267);
+            this.button3.Location = new System.Drawing.Point(379, 457);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 7;
             this.button3.Text = "ADD";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // CatCb
+            // SelCb
             // 
-            this.CatCb.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.CatCb.ForeColor = System.Drawing.Color.Red;
-            this.CatCb.FormattingEnabled = true;
-            this.CatCb.Items.AddRange(new object[] {
+            this.SelCb.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.SelCb.ForeColor = System.Drawing.Color.Red;
+            this.SelCb.FormattingEnabled = true;
+            this.SelCb.Items.AddRange(new object[] {
             "ADMIN",
             "ATTENDANT"});
-            this.CatCb.Location = new System.Drawing.Point(35, 205);
-            this.CatCb.Name = "CatCb";
-            this.CatCb.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.CatCb.Size = new System.Drawing.Size(135, 23);
-            this.CatCb.TabIndex = 15;
-            this.CatCb.Text = "SELECT CATEGORY";
+            this.SelCb.Location = new System.Drawing.Point(34, 237);
+            this.SelCb.Name = "SelCb";
+            this.SelCb.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.SelCb.Size = new System.Drawing.Size(135, 23);
+            this.SelCb.TabIndex = 15;
+            this.SelCb.Text = "SELECT CATEGORY";
             // 
             // ProdPrice
             // 
+            this.ProdPrice.AcceptsReturn = true;
             this.ProdPrice.AcceptsTab = true;
-            this.ProdPrice.Location = new System.Drawing.Point(97, 167);
+            this.ProdPrice.Location = new System.Drawing.Point(97, 124);
             this.ProdPrice.Name = "ProdPrice";
             this.ProdPrice.Size = new System.Drawing.Size(199, 23);
             this.ProdPrice.TabIndex = 13;
@@ -183,7 +297,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(20, 167);
+            this.label5.Location = new System.Drawing.Point(20, 124);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 19);
             this.label5.TabIndex = 12;
@@ -192,7 +306,8 @@
             // 
             // ProdQty
             // 
-            this.ProdQty.Location = new System.Drawing.Point(97, 128);
+            this.ProdQty.AcceptsReturn = true;
+            this.ProdQty.Location = new System.Drawing.Point(97, 164);
             this.ProdQty.Name = "ProdQty";
             this.ProdQty.Size = new System.Drawing.Size(199, 23);
             this.ProdQty.TabIndex = 11;
@@ -202,7 +317,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(3, 132);
+            this.label4.Location = new System.Drawing.Point(3, 168);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 19);
             this.label4.TabIndex = 10;
@@ -211,6 +326,7 @@
             // 
             // ProdName
             // 
+            this.ProdName.AcceptsReturn = true;
             this.ProdName.Location = new System.Drawing.Point(97, 83);
             this.ProdName.Name = "ProdName";
             this.ProdName.Size = new System.Drawing.Size(199, 23);
@@ -269,8 +385,9 @@
             this.Load += new System.EventHandler(this.SellingForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ORDERDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelDGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProdDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BillsDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -281,11 +398,11 @@
 
 
         private Button button8;
-        private DataGridView ProdDGV;
+        private DataGridView BillsDGV;
         private Button button7;
         private Button button4;
         private Button button3;
-        private ComboBox CatCb;
+        private ComboBox SelCb;
 
 
         private TextBox ProdPrice;
@@ -299,8 +416,17 @@
         private Label label1;
 
         private DataGridView SelDGV;
-        private Label Date;
-
-
+        private Label DateSg;
+        private Label label6;
+        private Button button1;
+        private Label Amt;
+        private Label label7;
+        private Label label9;
+        private DataGridView ORDERDGV;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn PName;
+        private DataGridViewTextBoxColumn Price;
+        private DataGridViewTextBoxColumn Quantity;
+        private DataGridViewTextBoxColumn Total;
     }
 }
