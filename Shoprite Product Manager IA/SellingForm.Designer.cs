@@ -41,7 +41,7 @@
             this.Amt = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.SelName = new System.Windows.Forms.Label();
             this.SelDGV = new System.Windows.Forms.DataGridView();
             this.DateSg = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
@@ -56,7 +56,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.ProdName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.ProdID = new System.Windows.Forms.TextBox();
+            this.BillID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -73,7 +73,7 @@
             this.panel1.Controls.Add(this.Amt);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.SelName);
             this.panel1.Controls.Add(this.SelDGV);
             this.panel1.Controls.Add(this.DateSg);
             this.panel1.Controls.Add(this.button8);
@@ -88,12 +88,12 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.ProdName);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.ProdID);
+            this.panel1.Controls.Add(this.BillID);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(98, 28);
+            this.panel1.Location = new System.Drawing.Point(98, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(778, 501);
+            this.panel1.Size = new System.Drawing.Size(839, 555);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -102,7 +102,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(478, 249);
+            this.label9.Location = new System.Drawing.Point(508, 278);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(85, 26);
             this.label9.TabIndex = 28;
@@ -120,8 +120,9 @@
             this.ORDERDGV.Location = new System.Drawing.Point(325, 63);
             this.ORDERDGV.Name = "ORDERDGV";
             this.ORDERDGV.RowTemplate.Height = 25;
-            this.ORDERDGV.Size = new System.Drawing.Size(450, 124);
+            this.ORDERDGV.Size = new System.Drawing.Size(496, 124);
             this.ORDERDGV.TabIndex = 27;
+            this.ORDERDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ORDERDGV_CellContentClick);
             // 
             // Id
             // 
@@ -182,14 +183,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label6
+            // SelName
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 7);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 15);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "Seller";
+            this.SelName.AutoSize = true;
+            this.SelName.Location = new System.Drawing.Point(20, 7);
+            this.SelName.Name = "SelName";
+            this.SelName.Size = new System.Drawing.Size(35, 15);
+            this.SelName.TabIndex = 23;
+            this.SelName.Text = "Seller";
             // 
             // SelDGV
             // 
@@ -197,7 +198,7 @@
             this.SelDGV.Location = new System.Drawing.Point(34, 266);
             this.SelDGV.Name = "SelDGV";
             this.SelDGV.RowTemplate.Height = 25;
-            this.SelDGV.Size = new System.Drawing.Size(230, 231);
+            this.SelDGV.Size = new System.Drawing.Size(230, 286);
             this.SelDGV.TabIndex = 22;
             this.SelDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelDGV_CellContentClick);
             // 
@@ -225,10 +226,10 @@
             // BillsDGV
             // 
             this.BillsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.BillsDGV.Location = new System.Drawing.Point(325, 278);
+            this.BillsDGV.Location = new System.Drawing.Point(325, 307);
             this.BillsDGV.Name = "BillsDGV";
             this.BillsDGV.RowTemplate.Height = 25;
-            this.BillsDGV.Size = new System.Drawing.Size(450, 117);
+            this.BillsDGV.Size = new System.Drawing.Size(496, 153);
             this.BillsDGV.TabIndex = 18;
             this.BillsDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProdDGV_CellContentClick);
             // 
@@ -236,7 +237,7 @@
             // 
             this.button7.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button7.ForeColor = System.Drawing.Color.Red;
-            this.button7.Location = new System.Drawing.Point(582, 457);
+            this.button7.Location = new System.Drawing.Point(612, 490);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 17;
@@ -248,7 +249,7 @@
             // 
             this.button4.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.Color.Red;
-            this.button4.Location = new System.Drawing.Point(478, 457);
+            this.button4.Location = new System.Drawing.Point(508, 490);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 16;
@@ -260,12 +261,13 @@
             // 
             this.button3.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(379, 457);
+            this.button3.Location = new System.Drawing.Point(409, 490);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 7;
             this.button3.Text = "ADD";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // SelCb
             // 
@@ -343,12 +345,12 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "NAME";
             // 
-            // ProdID
+            // BillID
             // 
-            this.ProdID.Location = new System.Drawing.Point(97, 41);
-            this.ProdID.Name = "ProdID";
-            this.ProdID.Size = new System.Drawing.Size(199, 23);
-            this.ProdID.TabIndex = 7;
+            this.BillID.Location = new System.Drawing.Point(97, 41);
+            this.BillID.Name = "BillID";
+            this.BillID.Size = new System.Drawing.Size(199, 23);
+            this.BillID.TabIndex = 7;
             // 
             // label2
             // 
@@ -411,13 +413,13 @@
         private Label label4;
         private TextBox ProdName;
         private Label label3;
-        private TextBox ProdID;
+        private TextBox BillID;
         private Label label2;
         private Label label1;
 
         private DataGridView SelDGV;
         private Label DateSg;
-        private Label label6;
+        private Label SelName;
         private Button button1;
         private Label Amt;
         private Label label7;

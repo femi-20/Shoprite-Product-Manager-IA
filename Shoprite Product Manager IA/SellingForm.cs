@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,6 +36,17 @@ namespace Shoprite_Product_Manager_IA
             SelDGV.DataSource = ds.Tables[0];
             Con.Close();
         }
+        private void populateBills()
+        {
+            Con.Open();
+            string query = "select * from  BillTb1";
+            SqlDataAdapter sda = new SqlDataAdapter(query, Con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            BillsDGV.DataSource = ds.Tables[0];
+            Con.Close();
+        }
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -57,6 +69,7 @@ namespace Shoprite_Product_Manager_IA
             SelCb.DisplayMember = "CatName";
             SelCb.ValueMember = "CatId";
             populate();
+            populateBills();
         }
 
         private void SelDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -130,6 +143,38 @@ namespace Shoprite_Product_Manager_IA
             Amt.Text = "Rs  " + Grdtotal;
             }
 
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (BillID.Text == "")
+            {
+                MessageBox.Show("Missing Bill ID");
+            }
+            else
+            { 
+            try
+            {
+                SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Utilisateur\Documents\shoprite.db.mdf;Integrated Security=True;Connect Timeout=30");
+                Con.Open();
+                string query = "insert into BillTb1 (BillId, SellerName ,BillDate , TotAmt ) values(" + BillID.Text + ",'" + SelName.Text + "','" + DateSg.Text + "', '" + Amt.Text + "')";
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Bill added successfully");
+                Con.Close();
+                populateBills();
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+            }
+        }
+
+        private void ORDERDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
