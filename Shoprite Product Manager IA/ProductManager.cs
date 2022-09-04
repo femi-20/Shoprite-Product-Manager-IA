@@ -149,5 +149,12 @@ namespace Shoprite_Product_Manager_IA
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SellingForm prod = new SellingForm();
+            prod.Show();
+            this.Hide();
+        }
     }
 }

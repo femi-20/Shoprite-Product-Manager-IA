@@ -127,7 +127,8 @@ namespace Shoprite_Product_Manager_IA
                 MessageBox.Show("Missing  Data");
             
             }
-            else { 
+            else {
+             int l = 0;
             int n = 0, Total = Convert.ToInt32(ProdPrice.Text) * Convert.ToInt32(ProdQty.Text);
             int Grdtotal = 0;
             DataGridViewRow newRow = new DataGridViewRow();
@@ -141,6 +142,7 @@ namespace Shoprite_Product_Manager_IA
             n++;
             Grdtotal = Grdtotal + Total;
             Amt.Text = "Rs  " + Grdtotal;
+                l= "select  ProdQty from ProductTb1 where prodName = '" + ProdName.Text + "'", Con); "
             }
 
 
@@ -176,6 +178,13 @@ namespace Shoprite_Product_Manager_IA
         private void ORDERDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 log = new Form1();
+            log.Show();
+            this.Hide();
         }
     }
 }

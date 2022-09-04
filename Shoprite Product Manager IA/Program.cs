@@ -28,7 +28,7 @@ namespace Shoprite_Product_Manager_IA
             Application.SetCompatibleTextRenderingDefault(false);
 
            
-            Application.Run(new SellingForm());
+            Application.Run(new  Form1());
 
         }
     }

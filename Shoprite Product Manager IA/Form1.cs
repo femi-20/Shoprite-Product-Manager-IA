@@ -76,7 +76,7 @@ namespace Shoprite_Product_Manager_IA
 
                     {
                         MessageBox.Show(" You are an Attendant");
-                        ProductManager prod = new ProductManager();
+                        SellingForm prod = new SellingForm();
                         prod.Show();
                         this.Hide();
                     }

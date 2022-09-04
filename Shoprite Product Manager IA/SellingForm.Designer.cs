@@ -59,6 +59,7 @@
             this.BillID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ORDERDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelDGV)).BeginInit();
@@ -68,6 +69,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkRed;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.ORDERDGV);
             this.panel1.Controls.Add(this.Amt);
@@ -102,7 +104,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(508, 278);
+            this.label9.Location = new System.Drawing.Point(508, 247);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(85, 26);
             this.label9.TabIndex = 28;
@@ -226,7 +228,7 @@
             // BillsDGV
             // 
             this.BillsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.BillsDGV.Location = new System.Drawing.Point(325, 307);
+            this.BillsDGV.Location = new System.Drawing.Point(325, 276);
             this.BillsDGV.Name = "BillsDGV";
             this.BillsDGV.RowTemplate.Height = 25;
             this.BillsDGV.Size = new System.Drawing.Size(496, 153);
@@ -237,7 +239,7 @@
             // 
             this.button7.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button7.ForeColor = System.Drawing.Color.Red;
-            this.button7.Location = new System.Drawing.Point(612, 490);
+            this.button7.Location = new System.Drawing.Point(612, 459);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 17;
@@ -249,7 +251,7 @@
             // 
             this.button4.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.Color.Red;
-            this.button4.Location = new System.Drawing.Point(508, 490);
+            this.button4.Location = new System.Drawing.Point(508, 459);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 16;
@@ -261,7 +263,7 @@
             // 
             this.button3.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(409, 490);
+            this.button3.Location = new System.Drawing.Point(409, 459);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 7;
@@ -375,6 +377,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "SELLIINGS";
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(761, 529);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "LOG OUT";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // SellingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -430,5 +444,6 @@
         private DataGridViewTextBoxColumn Price;
         private DataGridViewTextBoxColumn Quantity;
         private DataGridViewTextBoxColumn Total;
+        private Button button2;
     }
 }
