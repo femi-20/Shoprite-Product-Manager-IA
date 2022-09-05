@@ -79,6 +79,7 @@ namespace Shoprite_Product_Manager_IA
                 DataGridViewRow row = this.SelDGV.Rows[e.RowIndex];
                 ProdName.Text = row.Cells["ProdName"].Value.ToString();
                 ProdPrice.Text = row.Cells["ProdPrice"].Value.ToString();
+                TotQty.Text = row.Cells["ProdQty"].Value.ToString();
             }
                 
 
@@ -141,8 +142,10 @@ namespace Shoprite_Product_Manager_IA
             ORDERDGV.Rows.Add(newRow);
             n++;
             Grdtotal = Grdtotal + Total;
+                l= Convert.ToInt32(TotQty.Text) - Convert.ToInt32(ProdQty.Text);
             Amt.Text = "Rs  " + Grdtotal;
-                l= "select  ProdQty from ProductTb1 where prodName = '" + ProdName.Text + "'", Con); "
+               
+                
             }
 
 
@@ -185,6 +188,18 @@ namespace Shoprite_Product_Manager_IA
             Form1 log = new Form1();
             log.Show();
             this.Hide();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            populate();
+            populateBills();
+            ProdName.Text = "";
+            ProdQty.Text = "";
+            BillID.Text = "";
+            ProdPrice.Text = "";
+
+
         }
     }
 }

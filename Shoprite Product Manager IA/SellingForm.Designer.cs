@@ -31,6 +31,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TotQty = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.ORDERDGV = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +61,6 @@
             this.BillID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ORDERDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelDGV)).BeginInit();
@@ -69,6 +70,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkRed;
+            this.panel1.Controls.Add(this.TotQty);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.ORDERDGV);
@@ -98,6 +100,27 @@
             this.panel1.Size = new System.Drawing.Size(839, 555);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // TotQty
+            // 
+            this.TotQty.AcceptsReturn = true;
+            this.TotQty.BackColor = System.Drawing.Color.DarkRed;
+            this.TotQty.Location = new System.Drawing.Point(285, 520);
+            this.TotQty.Name = "TotQty";
+            this.TotQty.Size = new System.Drawing.Size(199, 23);
+            this.TotQty.TabIndex = 30;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(761, 529);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "LOG OUT";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label9
             // 
@@ -224,6 +247,7 @@
             this.button8.TabIndex = 19;
             this.button8.Text = "REFRESH";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // BillsDGV
             // 
@@ -377,18 +401,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "SELLIINGS";
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(761, 529);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 29;
-            this.button2.Text = "LOG OUT";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // SellingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -445,5 +457,6 @@
         private DataGridViewTextBoxColumn Quantity;
         private DataGridViewTextBoxColumn Total;
         private Button button2;
+        private TextBox TotQty;
     }
 }
