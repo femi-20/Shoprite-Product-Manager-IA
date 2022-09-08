@@ -47,6 +47,19 @@ namespace Shoprite_Product_Manager_IA
             BillsDGV.DataSource = ds.Tables[0];
             Con.Close();
         }
+        private void fillcombo()
+        {
+            Con.Open();
+            SqlCommand cmd = new SqlCommand("select CatName from CategoryTb1", Con);
+            SqlDataReader rdr;
+            rdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Catname", typeof(string));
+            dt.Load(rdr);
+            SelCb.ValueMember = "CatName";
+            SelCb.DataSource = dt;
+            Con.Close();
+        }
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -59,18 +72,11 @@ namespace Shoprite_Product_Manager_IA
 
         private void SellingForm_Load(object sender, EventArgs e)
         {
-            SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Utilisateur\Documents\shoprite.db.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlCommand cmd = new SqlCommand("select CatName,CatId from CategoryTb1", Con);
-            SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = cmd;
-            DataTable table1 = new DataTable();
-            da.Fill(table1);
-            SelCb.DataSource = table1;
-            SelCb.DisplayMember = "CatName";
-            SelCb.ValueMember = "CatId";
             populate();
             populateBills();
+            fillcombo();
         }
+        int flag = 0;
 
         private void SelDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -80,6 +86,7 @@ namespace Shoprite_Product_Manager_IA
                 ProdName.Text = row.Cells["ProdName"].Value.ToString();
                 ProdPrice.Text = row.Cells["ProdPrice"].Value.ToString();
                 TotQty.Text = row.Cells["ProdQty"].Value.ToString();
+                flag = 1; 
             }
                 
 
@@ -102,12 +109,15 @@ namespace Shoprite_Product_Manager_IA
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
         }
 
         private void ProdDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            flag = 1;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -144,8 +154,12 @@ namespace Shoprite_Product_Manager_IA
             Grdtotal = Grdtotal + Total;
                 l= Convert.ToInt32(TotQty.Text) - Convert.ToInt32(ProdQty.Text);
             Amt.Text = "Rs  " + Grdtotal;
-               
-                
+                SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Utilisateur\Documents\shoprite.db.mdf;Integrated Security=True;Connect Timeout=30");
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("update  ProductTb1 set   ProdQty = '"+l+" ' where ProdName = " + ProdName.Text + " ", Con);
+                cmd.ExecuteNonQuery();
+                Con.Close();
+                populate();
             }
 
 
@@ -194,6 +208,7 @@ namespace Shoprite_Product_Manager_IA
         {
             populate();
             populateBills();
+            fillcombo();
             ProdName.Text = "";
             ProdQty.Text = "";
             BillID.Text = "";
@@ -201,5 +216,30 @@ namespace Shoprite_Product_Manager_IA
 
 
         }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            e.Graphics.DrawString("SHOPRITE", new Font("Century Gotic", 25, FontStyle.Bold), Brushes.Red, new Point(230));
+            e.Graphics.DrawString("Bill ID :"+ BillsDGV.SelectedRows[0].Cells[0].Value.ToString(), new Font("Century Gotic", 20, FontStyle.Bold), Brushes.BlueViolet, new Point(100,100));
+            e.Graphics.DrawString("Seller Name  :" + BillsDGV.SelectedRows[0].Cells[1].Value.ToString(), new Font("Century Gotic", 20, FontStyle.Bold), Brushes.BlueViolet, new Point(100, 100));
+            e.Graphics.DrawString(" Date :" + BillsDGV.SelectedRows[0].Cells[2].Value.ToString(), new Font("Century Gotic", 20, FontStyle.Bold), Brushes.BlueViolet, new Point(70, 100));
+            e.Graphics.DrawString(" Total Amount  :" + BillsDGV.SelectedRows[0].Cells[3].Value.ToString(), new Font("Century Gotic", 20, FontStyle.Bold), Brushes.BlueViolet, new Point(100, 100));
+
+        }
+
+        private void SelCb_SelectionChangedCommitted(object sender, EventArgs e)
+        {
+            Con.Open();
+            string query = "select ProdName,ProdQty from ProductTb1 where ProdCat= ' " + SelCb.SelectedValue.ToString() + "'";
+            SqlDataAdapter sda = new SqlDataAdapter(query, Con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            SelDGV.DataSource = ds.Tables[0];
+            Con.Close();
+        }
+
+       
     }
 }

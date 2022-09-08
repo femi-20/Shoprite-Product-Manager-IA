@@ -144,5 +144,10 @@ namespace Shoprite_Product_Manager_IA
             prod.Show();
             this.Hide();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

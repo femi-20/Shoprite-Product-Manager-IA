@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.ProdCb2 = new System.Windows.Forms.ComboBox();
             this.button8 = new System.Windows.Forms.Button();
             this.ProdDGV = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
@@ -57,7 +57,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkRed;
-            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.ProdCb2);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.ProdDGV);
             this.panel1.Controls.Add(this.button7);
@@ -80,20 +80,22 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // comboBox2
+            // ProdCb2
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.ForeColor = System.Drawing.Color.Red;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.ProdCb2.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.ProdCb2.ForeColor = System.Drawing.Color.Red;
+            this.ProdCb2.FormattingEnabled = true;
+            this.ProdCb2.Items.AddRange(new object[] {
             "ADMIN",
             "ATTENDANT"});
-            this.comboBox2.Location = new System.Drawing.Point(499, 83);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.comboBox2.Size = new System.Drawing.Size(135, 23);
-            this.comboBox2.TabIndex = 20;
-            this.comboBox2.Text = "SELECT CATEGORY";
+            this.ProdCb2.Location = new System.Drawing.Point(499, 83);
+            this.ProdCb2.Name = "ProdCb2";
+            this.ProdCb2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ProdCb2.Size = new System.Drawing.Size(135, 23);
+            this.ProdCb2.TabIndex = 20;
+            this.ProdCb2.Text = "SELECT CATEGORY";
+            this.ProdCb2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.ProdCb2.SelectionChangeCommitted += new System.EventHandler(this.ProdCb2_SelectionChangedCommited);
             // 
             // button8
             // 
@@ -105,6 +107,7 @@
             this.button8.TabIndex = 19;
             this.button8.Text = "REFRESH";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // ProdDGV
             // 
@@ -355,7 +358,7 @@
         private Button button7;
         private Button button4;
         private Button button3;
-        private ComboBox comboBox2;
+        private ComboBox ProdCb2;
         private Button button8;
         private DataGridView ProdDGV;
     }

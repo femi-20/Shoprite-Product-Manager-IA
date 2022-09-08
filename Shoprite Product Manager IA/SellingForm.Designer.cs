@@ -30,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SellingForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.TotQty = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -61,6 +62,8 @@
             this.BillID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ORDERDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelDGV)).BeginInit();
@@ -309,6 +312,7 @@
             this.SelCb.Size = new System.Drawing.Size(135, 23);
             this.SelCb.TabIndex = 15;
             this.SelCb.Text = "SELECT CATEGORY";
+            this.SelCb.SelectionChangeCommitted += new System.EventHandler(this.SelCb_SelectionChangedCommitted);
             // 
             // ProdPrice
             // 
@@ -401,6 +405,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "SELLIINGS";
             // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
             // SellingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -458,5 +477,7 @@
         private DataGridViewTextBoxColumn Total;
         private Button button2;
         private TextBox TotQty;
+        private PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

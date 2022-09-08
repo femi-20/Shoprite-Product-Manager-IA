@@ -22,18 +22,25 @@ namespace Shoprite_Product_Manager_IA
 
         private void ProductManager_Load(object sender, EventArgs e)
     {
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Utilisateur\Documents\shoprite.db.mdf;Integrated Security=True;Connect Timeout=30");
-        SqlCommand cmd = new SqlCommand("select CatId,CatName from CategoryTb1", Con);
-        SqlDataAdapter da = new SqlDataAdapter();
-        da.SelectCommand = cmd;
-        DataTable table1 = new DataTable();
-            da.Fill(table1);
-            CatCb.DataSource = table1;
-            CatCb.DisplayMember = "CatName";
-            CatCb.ValueMember = "CatId";
             populate();
+            fillcombo();
 
     }
+        private void fillcombo()
+        {
+            Con.Open();
+            SqlCommand cmd = new SqlCommand("select CatName from CategoryTb1", Con);
+            SqlDataReader rdr ;
+            rdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Catname", typeof(string));
+            dt.Load(rdr);
+            CatCb.DataSource = dt;
+            CatCb.ValueMember = "CatName";
+            ProdCb2.DataSource = dt;
+            ProdCb2.ValueMember = "CatName";
+            Con.Close();
+        }
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -129,7 +136,7 @@ namespace Shoprite_Product_Manager_IA
                 ProdName.Text = row.Cells["ProdName"].Value.ToString();
                 ProdQty.Text = row.Cells["ProdQty"].Value.ToString();
                 ProdPrice.Text = row.Cells["ProdPrice"].Value.ToString();
-                CatCb.SelectedValue= row.Cells["Prodcat"].Value.ToString();
+                CatCb.SelectedValue= row.Cells["ProdCat"].Value.ToString();
             }
         }
         private void populate()
@@ -155,6 +162,38 @@ namespace Shoprite_Product_Manager_IA
             SellingForm prod = new SellingForm();
             prod.Show();
             this.Hide();
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+           
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProdCb2_SelectionChangedCommited(object sender, EventArgs e)
+        {
+            Con.Open();
+            string query = "select * from ProductTb1 where ProdCat = ' " +ProdCb2.SelectedValue+ "'";
+            SqlDataAdapter sda = new SqlDataAdapter(query, Con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            ProdDGV.DataSource = ds.Tables[0];
+            Con.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            populate();
         }
     }
 }
