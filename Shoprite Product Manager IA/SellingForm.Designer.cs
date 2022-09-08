@@ -219,6 +219,7 @@
             this.SelName.Size = new System.Drawing.Size(35, 15);
             this.SelName.TabIndex = 23;
             this.SelName.Text = "Seller";
+            this.SelName.Click += new System.EventHandler(this.SelName_Click);
             // 
             // SelDGV
             // 

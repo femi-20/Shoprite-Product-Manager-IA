@@ -75,6 +75,7 @@ namespace Shoprite_Product_Manager_IA
             populate();
             populateBills();
             fillcombo();
+            SelName.Text = Form1.Sellername;
         }
         int flag = 0;
 
@@ -240,6 +241,9 @@ namespace Shoprite_Product_Manager_IA
             Con.Close();
         }
 
-       
+        private void SelName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

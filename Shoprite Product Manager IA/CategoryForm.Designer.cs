@@ -192,11 +192,11 @@
             // 
             this.button6.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button6.ForeColor = System.Drawing.Color.Red;
-            this.button6.Location = new System.Drawing.Point(26, 419);
+            this.button6.Location = new System.Drawing.Point(26, 434);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 24;
-            this.button6.Text = "SELLINGS";
+            this.button6.Text = "Logout";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -218,10 +218,11 @@
             this.button1.ForeColor = System.Drawing.Color.Red;
             this.button1.Location = new System.Drawing.Point(26, 116);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(93, 23);
             this.button1.TabIndex = 22;
-            this.button1.Text = "SELLERS";
+            this.button1.Text = "ATTENDANT";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button5
             // 

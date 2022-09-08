@@ -140,7 +140,7 @@ namespace Shoprite_Product_Manager_IA
 
         private void button6_Click(object sender, EventArgs e)
         {
-            SellingForm prod = new SellingForm();
+            Form1 prod = new Form1();
             prod.Show();
             this.Hide();
         }
@@ -148,6 +148,13 @@ namespace Shoprite_Product_Manager_IA
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SellerForm Seller = new SellerForm();
+            Seller.Show();
+            this.Hide();
         }
     }
 }

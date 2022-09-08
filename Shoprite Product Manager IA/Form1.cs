@@ -12,7 +12,7 @@ namespace Shoprite_Product_Manager_IA
         {
             InitializeComponent();
         }
-
+        public static string Sellername = "";
         SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Utilisateur\Documents\shoprite.db.mdf;Integrated Security=True;Connect Timeout=30");
         private void label5_Click(object sender, EventArgs e)
         {
@@ -82,6 +82,7 @@ namespace Shoprite_Product_Manager_IA
                         sda.Fill(dt);
                         if (dt.Rows[0][0].ToString() == "1")
                         {
+                            Sellername = txt_username.Text;
                             SellingForm sell = new SellingForm();
                             sell.Show();
                             this.Hide();
