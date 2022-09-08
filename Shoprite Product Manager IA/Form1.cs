@@ -13,7 +13,7 @@ namespace Shoprite_Product_Manager_IA
             InitializeComponent();
         }
 
-
+        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Utilisateur\Documents\shoprite.db.mdf;Integrated Security=True;Connect Timeout=30");
         private void label5_Click(object sender, EventArgs e)
         {
 
@@ -24,7 +24,6 @@ namespace Shoprite_Product_Manager_IA
             Application.Exit();
 
         }
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Utilisateur\Documents\shoprite.db.mdf;Integrated Security=True;Connect Timeout=30");
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -68,6 +67,8 @@ namespace Shoprite_Product_Manager_IA
                             txt_username.Clear();
                             txt_userpasword.Clear();
 
+
+
                             txt_username.Focus();
                         }
                     }
@@ -75,10 +76,24 @@ namespace Shoprite_Product_Manager_IA
                     else  if  (RoleCb.SelectedItem.ToString() == "ATTENDANT")
 
                     {
-                        MessageBox.Show(" You are an Attendant");
-                        SellingForm prod = new SellingForm();
-                        prod.Show();
-                        this.Hide();
+                        Con.Open();
+                        SqlDataAdapter sda = new SqlDataAdapter("Select count(8) from SellerTb1 where SellerName ='" +txt_username.Text + "' and SellerPass = '" + txt_userpasword.Text + "' ", Con);
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        if (dt.Rows[0][0].ToString() == "1")
+                        {
+                            SellingForm sell = new SellingForm();
+                            sell.Show();
+                            this.Hide();
+                            Con.Close();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wrong username or password");
+                        }
+                        Con.Close();
+                       
                     }
 
                 }

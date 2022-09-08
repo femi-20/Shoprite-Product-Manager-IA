@@ -159,7 +159,7 @@ namespace Shoprite_Product_Manager_IA
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SellingForm prod = new SellingForm();
+            Form1 prod = new Form1();
             prod.Show();
             this.Hide();
         }
